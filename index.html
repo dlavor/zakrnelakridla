@@ -11,22 +11,118 @@
             color: white;
             font-family: 'Amatic SC', cursive;
             text-align: center;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            min-height: 100vh;
         }
         h1 {
-            margin-top: 20%;
-            font-size: 3em;
+            font-size: 4em;
+            margin-top: 20px;
         }
         p {
-            font-size: 1.5em;
+            font-size: 1.9em;
             margin: 20px auto;
             width: 80%;
+            max-width: 800px;
+        }
+        hr {
+            border: 0;
+            border-bottom: 1px solid #fff;
+            width: 10%;
+        }
+        .page {
+            display: none;
+            flex-grow: 1;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .active {
+            display: flex;
+        }
+        .navigation {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 20px;
+            position: sticky;
+            bottom: 0;
+            background-color: black;
+            padding: 10px 0;
+        }
+        .navigation button {
+            background-color: white;
+            color: black;
+            border: none;
+            padding: 10px 20px;
+            cursor: pointer;
+            font-family: 'Amatic SC', cursive;
+            font-size: 1.5em;
+            border-radius: 5px;
+            margin: 0 10px;
+            transition: background-color 0.3s, color 0.3s;
+            width: 100px
+        }
+        .navigation button:hover {
+            background-color: gray;
+            color: white;
         }
     </style>
 </head>
 <body>
-    <h1>Zakrnělá křídla</h1>
-    <p>
-        ...
-    </p>
+    <div id="page1" class="page active">
+        <h1>Zakrnělá křídla</h1>
+        <p>
+            Vážení čtenáři,<br />
+            s radostí vám představujeme přepracovanou verzi sbírky básní. Tato nová edice je vlastně reinkarnací původního brožovaného výtisku z roku 2010 a nese označení 5. vydání.
+            <br /><br />
+            Nápad na přepracování sbírky vznikl někdy v létě 2022. Cílem tohoto rozhodnutí bylo učinit sbírku atraktivnější, což si bezpochyby zaslouží. Výsledkem je jedinečné zpracování, které přináší čtenářům hlubší a bohatší zážitek.
+            <br /><br />
+            Doufáme, že vás nové vydání této sbírky básní potěší a zaujme stejně, jako nás při jeho tvorbě!
+        </p>
+        <hr>
+        <p>
+            <small>Text:</small> <strong>Karel Lavor</strong><br />
+            <small>Design, zpracování:</small> <strong>Daniel Lavor</strong><br />
+            <small>Námět, ilustrace:</small> <strong>Eleonora Šperlová</strong><br />
+        </p>
+    </div>
+    <div id="page2" class="page">
+        <h1>Zakrnělá křídla - Další sekce</h1>
+        <p>
+            odkazy na pdf, fotky atd.
+        </p>
+    </div>
+    <div class="navigation">
+        <button onclick="prevPage()">&lt; Zpět</button>
+        <button onclick="nextPage()">Další &gt;</button>
+    </div>
+    <script>
+        let currentPage = 1;
+        const totalPages = 2;
+
+        function showPage(page) {
+            for (let i = 1; i <= totalPages; i++) {
+                document.getElementById(`page${i}`).classList.remove('active');
+            }
+            document.getElementById(`page${page}`).classList.add('active');
+        }
+
+        function nextPage() {
+            if (currentPage < totalPages) {
+                currentPage++;
+                showPage(currentPage);
+            }
+        }
+
+        function prevPage() {
+            if (currentPage > 1) {
+                currentPage--;
+                showPage(currentPage);
+            }
+        }
+    </script>
 </body>
 </html>
