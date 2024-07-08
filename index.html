@@ -6,9 +6,17 @@
     <title>Zakrnělá křídla</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
+        :root {
+            --color-black: #272727;
+            --color-white: #FFFBEE;
+        }
+        ::selection {
+            background-color: var(--color-white);
+            color: var(--color-black);
+        }
         body {
-            background-color: black;
-            color: white;
+            background-color: var(--color-black);
+            color: var(--color-white);
             font-family: 'Amatic SC', cursive;
             text-align: center;
             margin: 0;
@@ -30,11 +38,11 @@
         }
         hr {
             border: 0;
-            border-bottom: 1px solid #fff;
+            border-bottom: 1px solid var(--color-white);
             width: 10%;
         }
         a {
-            color: #fff;
+            color: var(--color-white);
             text-decoration: none;
         }
         .page {
@@ -53,12 +61,12 @@
             margin: 20px;
             position: sticky;
             bottom: 0;
-            background-color: black;
+            background-color: var(--color-black);
             padding: 10px 0;
         }
         .navigation button {
-            background-color: white;
-            color: black;
+            background-color: var(--color-white);
+            color: var(--color-black);
             border: none;
             padding: 10px 20px;
             cursor: pointer;
@@ -71,7 +79,7 @@
         }
         .navigation button:hover {
             background-color: gray;
-            color: white;
+            color: var(--color-white);
         }
     </style>
 </head>
@@ -84,7 +92,7 @@
             <br /><br />
             Nápad na přepracování sbírky vznikl někdy v létě 2022. Cílem tohoto rozhodnutí bylo učinit sbírku atraktivnější, což si bezpochyby zaslouží. Výsledkem je jedinečné zpracování, které přináší čtenářům hlubší a bohatší zážitek.
             <br /><br />
-            Doufáme, že vás nové vydání této sbírky básní potěší a zaujme stejně, jako nás při jeho tvorbě!
+            Doufáme, že vás nové vydání této sbírky básní potěší a zaujme stejně, jako nás při její tvorbě!
         </p>
         <hr>
         <p>
