@@ -2,13 +2,17 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Zakrnělá křídla</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet">
     <style>
         :root {
             --color-black: #000;
             --color-white: #fff;
+            --color-gray: gray;
         }
         ::selection {
             background-color: var(--color-white);
@@ -44,6 +48,12 @@
             width: 80%;
             max-width: 800px;
         }
+        p small {
+            font-size: 0.7em;
+        }
+        p small strong {
+            font-size: 1.2em;
+        }
         hr {
             border: 0;
             border-bottom: 1px solid var(--color-white);
@@ -53,7 +63,7 @@
             color: var(--color-white);
             text-decoration: none;
         }
-        h1 a {
+        h2 a {
             border-bottom: 3px solid var(--color-white);
         }
         .page {
@@ -86,11 +96,16 @@
             border-radius: 5px;
             margin: 0 10px;
             transition: background-color 0.3s, color 0.3s;
-            width: 100px
+            width: 100px;
         }
-        .navigation button:hover {
-            background-color: gray;
+        .navigation button:hover:not(:disabled) {
+            background-color: var(--color-gray);
             color: var(--color-white);
+        }
+        .navigation button:disabled {
+            background-color: var(--color-gray);
+            color: var(--color-white);
+            cursor: not-allowed;
         }
     </style>
 </head>
@@ -98,50 +113,62 @@
     <div id="page1" class="page active">
         <h1>Zakrnělá křídla</h1>
         <p>
-            Vážení čtenáři,<br />
+            Vážení čtenáři,
+            <br/>
             s radostí vám představujeme přepracovanou verzi sbírky básní. Tato nová edice je vlastně reinkarnací původního brožovaného výtisku z roku 2010 a nese označení 5. vydání.
-            <br /><br />
+        </p>
+        <p>
             Nápad na přepracování sbírky vznikl někdy v létě 2022. Cílem tohoto rozhodnutí bylo učinit sbírku atraktivnější, což si bezpochyby zaslouží. Výsledkem je jedinečné zpracování, které přináší čtenářům hlubší a bohatší zážitek.
-            <br /><br />
+        </p>
+        <p>
             Doufáme, že vás nové vydání této sbírky básní potěší a zaujme stejně, jako nás při její tvorbě!
         </p>
         <hr>
         <p>
-            <small>Text:</small> <strong>Karel Lavor</strong><br />
-            <small>Design, zpracování:</small> <strong>Daniel Lavor</strong><br />
-            <small>Námět, ilustrace:</small> <strong>Eleonora Šperlová</strong><br />
-            <small>Odborný dohled, vazba, tisk:</small> <strong><a href="https://graficke-papiry.cz/" target="_blank">Grafické-papíry.cz</a></strong><br />
+            <small>Text: <strong>Karel Lavor</strong></small><br/>
+            <small>Design, zpracování: <strong>Daniel Lavor</strong></small><br/>
+            <small>Námět, ilustrace: <strong>Eleonora Šperlová</strong></small><br/>
+            <small>Odborný dohled, vazba, tisk: <strong><a href="https://graficke-papiry.cz/" target="_blank">Grafické-papíry.cz</a></strong></small><br/>
         </p>
     </div>
     <div id="page2" class="page">
         <h1>Zakrnělá křídla</h1>
         <h3>Původní vydání</h3>
-        <h1>Ke stažení <a href="https://cloud.lbkp.cz/download.php?id=4&token=IB02zjFfUYp7QCmR3Fpl3vSY3veSRVbI">zde jako PDF</a>.</h1>
+        <h2>Ke stažení <a href="https://cloud.lbkp.cz/download.php?id=4&token=IB02zjFfUYp7QCmR3Fpl3vSY3veSRVbI">zde jako PDF</a>.</h2>
     </div>
     <div id="page3" class="page">
         <h1>Poděkování</h1>
         <p>
             Pakliže jste doputovali až sem, věříme, že se Vám knížka líbila.<br/>Jsme moc rádi a děkujeme za přízeň!
-            <br/><br/>
+        </p>
+        <p>
             V případě, že byste chtěli přispět na výrobu knihy, můžete tak učinit malým příspěvkem zde:
-            <br/><br/>
-            <strong>1305987015/3030</strong><br/>
+        </p>
+        <p>
+            <strong>1305987015/3030</strong>
+            <br/>
             v.s. <strong>20102024</strong>
         </p>
     </div>
     <div class="navigation">
-        <button onclick="prevPage()">&lt; Zpět</button>
-        <button onclick="nextPage()">Další &gt;</button>
+        <button id="prevBtn" onclick="prevPage()">&lt; Zpět</button>
+        <button id="nextBtn" onclick="nextPage()">Další &gt;</button>
     </div>
     <script>
         let currentPage = 1;
         const totalPages = 3;
+
+        function updateButtons() {
+            document.getElementById('prevBtn').disabled = currentPage === 1;
+            document.getElementById('nextBtn').disabled = currentPage === totalPages;
+        }
 
         function showPage(page) {
             for (let i = 1; i <= totalPages; i++) {
                 document.getElementById(`page${i}`).classList.remove('active');
             }
             document.getElementById(`page${page}`).classList.add('active');
+            updateButtons();
         }
 
         function nextPage() {
@@ -157,6 +184,8 @@
                 showPage(currentPage);
             }
         }
+
+        updateButtons();
     </script>
 </body>
 </html>
