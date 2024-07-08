@@ -30,6 +30,14 @@
             font-size: 4em;
             margin-top: 20px;
         }
+        h2 {
+            font-size: 3em;
+            margin-top: 10px;
+        }
+        h3 {
+            font-size: 2.5em;
+            margin-top: 8px;
+        }
         p {
             font-size: 1.9em;
             margin: 20px auto;
@@ -39,11 +47,14 @@
         hr {
             border: 0;
             border-bottom: 1px solid var(--color-white);
-            width: 10%;
+            width: 2%;
         }
         a {
             color: var(--color-white);
             text-decoration: none;
+        }
+        h1 a {
+            border-bottom: 3px solid var(--color-white);
         }
         .page {
             display: none;
@@ -103,9 +114,19 @@
         </p>
     </div>
     <div id="page2" class="page">
-        <h1>Zakrnělá křídla - Další sekce</h1>
+        <h1>Zakrnělá křídla</h1>
+        <h3>Původní vydání</h3>
+        <h1>Ke stažení <a href="https://cloud.lbkp.cz/download.php?id=4&token=IB02zjFfUYp7QCmR3Fpl3vSY3veSRVbI">zde jako PDF</a>.</h1>
+    </div>
+    <div id="page3" class="page">
+        <h1>Poděkování</h1>
         <p>
-            odkazy na pdf, fotky atd.
+            Pakliže jste doputovali až sem, věříme, že se Vám knížka líbila.<br/>Jsme moc rádi a děkujeme za přízeň!
+            <br/><br/>
+            V případě, že byste chtěli přispět na výrobu knihy, můžete tak učinit malým příspěvkem zde:
+            <br/><br/>
+            <strong>1305987015/3030</strong><br/>
+            v.s. <strong>20102024</strong>
         </p>
     </div>
     <div class="navigation">
@@ -114,7 +135,7 @@
     </div>
     <script>
         let currentPage = 1;
-        const totalPages = 2;
+        const totalPages = 3;
 
         function showPage(page) {
             for (let i = 1; i <= totalPages; i++) {
