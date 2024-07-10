@@ -113,6 +113,30 @@
             color: var(--color-white);
             cursor: not-allowed;
         }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            transform: scale(0);
+            animation: ripple-animation 350ms linear;
+            background-color: rgba(0, 0, 0, 0.4);
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        @keyframes ripple-animation {
+            to {
+                transform: scale(4);
+                opacity: 0;
+            }
+        }
+
+        .button-wrapper {
+            position: relative;
+            overflow: hidden;
+            display: inline-block;
+            border-radius: 5px;
+        }
     </style>
 </head>
 <body>
@@ -166,8 +190,12 @@
         </p>
     </div>
     <div class="navigation">
-        <button id="prevBtn" onclick="prevPage()">&lt; <span>Zpět</span></button>
-        <button id="nextBtn" onclick="nextPage()"><span>Další</span> &gt;</button>
+        <div class="button-wrapper">
+            <button id="prevBtn" onclick="prevPage()">&lt; <span>Zpět</span></button>
+        </div>
+        <div class="button-wrapper">
+            <button id="nextBtn" onclick="nextPage()"><span>Další</span> &gt;</button>
+        </div>
     </div>
     <script>
         let currentPage = 1;
@@ -199,6 +227,23 @@
                 showPage(currentPage);
             }
         }
+
+        document.querySelectorAll('.button-wrapper button').forEach(button => {
+            button.addEventListener('click', function (e) {
+                const rect = button.getBoundingClientRect();
+                const ripple = document.createElement('span');
+                ripple.className = 'ripple';
+                ripple.style.width = ripple.style.height = Math.max(rect.width, rect.height) + 'px';
+                ripple.style.left = e.clientX - rect.left - ripple.offsetWidth / 2 + 'px';
+                ripple.style.top = e.clientY - rect.top - ripple.offsetHeight / 2 + 'px';
+
+                button.appendChild(ripple);
+
+                ripple.addEventListener('animationend', () => {
+                    ripple.remove();
+                });
+            });
+        });
 
         updateButtons();
     </script>
