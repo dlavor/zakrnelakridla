@@ -106,7 +106,7 @@
             width: 100px;
         }
         .navigation button:hover:not(:disabled) span {
-            text-decoration: underline;
+            border-bottom: 1px solid var(--color-gray);
         }
         .navigation button:disabled {
             background-color: var(--color-gray);
@@ -156,13 +156,22 @@
             v.s. <strong>20102024</strong>
         </p>
     </div>
+    <div id="page4" class="page">
+        <h1>Kontakt</h1>
+        <p>
+            Pokud byste chtěli zanechat jakýkoliv vzkaz případně byste měli zájem získat další výtisk, například pro své přátele, napište nám na:
+        </p>
+        <p>
+            <strong><a href="mailto:takhletobylo@zakrnelakridla.cz">TakhleToBylo@ZakrnelaKridla.cz</a></strong>
+        </p>
+    </div>
     <div class="navigation">
         <button id="prevBtn" onclick="prevPage()">&lt; <span>Zpět</span></button>
         <button id="nextBtn" onclick="nextPage()"><span>Další</span> &gt;</button>
     </div>
     <script>
         let currentPage = 1;
-        const totalPages = 3;
+        const totalPages = document.querySelectorAll('.page').length;
 
         function updateButtons() {
             document.getElementById('prevBtn').disabled = currentPage === 1;
