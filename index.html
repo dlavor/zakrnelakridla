@@ -8,136 +8,7 @@
     <meta http-equiv="Expires" content="0" />
     <title>Zakrnělá křídla</title>
     <link href="https://fonts.googleapis.com/css2?family=Amatic+SC:wght@400;700&display=swap" rel="stylesheet" />
-    <style>
-        :root {
-            --color-black: #000;
-            --color-white: #fff;
-            --color-gray: gray;
-        }
-        ::selection {
-            background-color: var(--color-white);
-            color: var(--color-black);
-        }
-        html {
-            -webkit-text-size-adjust: none;
-            touch-action: manipulation;
-        }
-        body {
-            background-color: var(--color-black);
-            color: var(--color-white);
-            font-family: 'Amatic SC', cursive;
-            text-align: center;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            min-height: 100vh;
-            touch-action: pan-x pan-y; /* disable zoom gesture */
-        }
-        h1 {
-            font-size: 4em;
-            margin-top: 20px;
-        }
-        h2 {
-            font-size: 3em;
-            margin-top: 10px;
-        }
-        h3 {
-            font-size: 2.5em;
-            margin-top: 8px;
-        }
-        p {
-            font-size: 1.9em;
-            margin: 20px auto;
-            width: 80%;
-            max-width: 800px;
-        }
-        p small {
-            font-size: 0.7em;
-        }
-        p small strong {
-            font-size: 1.1em;
-        }
-        hr {
-            border: 0;
-            border-bottom: 1px solid var(--color-white);
-            width: 2%;
-        }
-        a {
-            color: var(--color-white);
-            text-decoration: none;
-        }
-        p a {
-            border-bottom: 2px solid var(--color-white);
-        }
-        h2 a {
-            border-bottom: 3px solid var(--color-white);
-        }
-        .page {
-            display: none;
-            flex-grow: 1;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .active {
-            display: flex;
-        }
-        .navigation {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            position: sticky;
-            bottom: 0;
-            background-color: var(--color-black);
-            padding: 15px 0;
-        }
-        .navigation button {
-            background-color: var(--color-white);
-            color: var(--color-black);
-            border: none;
-            padding: 10px 20px;
-            cursor: pointer;
-            font-family: 'Amatic SC', cursive;
-            font-size: 1.5em;
-            border-radius: 5px;
-            margin: 0 10px;
-            transition: background-color 0.3s, color 0.3s;
-            width: 100px;
-        }
-        .navigation button:hover:not(:disabled) span {
-            border-bottom: 1px solid var(--color-gray);
-        }
-        .navigation button:disabled {
-            background-color: var(--color-gray);
-            color: var(--color-white);
-            cursor: not-allowed;
-        }
-
-        .ripple {
-            position: absolute;
-            border-radius: 50%;
-            transform: scale(0);
-            animation: ripple-animation 350ms linear;
-            background-color: rgba(0, 0, 0, 0.4);
-            pointer-events: none;
-            z-index: 1;
-        }
-
-        @keyframes ripple-animation {
-            to {
-                transform: scale(4);
-                opacity: 0;
-            }
-        }
-
-        .button-wrapper {
-            position: relative;
-            overflow: hidden;
-            display: inline-block;
-            border-radius: 5px;
-        }
-    </style>
+    <link rel="stylesheet" href="./assets/styles.css">
 </head>
 <body>
     <div id="page1" class="page active">
@@ -179,6 +50,9 @@
             <br/>
             v.s. <strong>20102024</strong>
         </p>
+        <div class="centered-image">
+            <img src="./assets/kure-bez-chechtaku.png" alt="Kuře bez chechtáků" width="300px">
+        </div>
     </div>
     <div id="page4" class="page">
         <h1>Kontakt</h1>
@@ -188,6 +62,9 @@
         <p>
             <strong><a href="mailto:takhletobylo@zakrnelakridla.cz">TakhleToBylo@ZakrnelaKridla.cz</a></strong>
         </p>
+        <div class="centered-image" style="margin-top:60px">
+            <img src="./assets/zdravice.png" alt="Zdravice" width="200px">
+        </div>
     </div>
     <div class="navigation">
         <div class="button-wrapper">
