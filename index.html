@@ -124,6 +124,10 @@
 
         updateButtons();
     </script>
-    <script defer src='https://static.cloudflareinsights.com/beacon.min.js' data-cf-beacon='{"token": "9ef006e1653c44d19b32ee923eaeb84e"}'></script>
+    <script async src="https://rum.cronitor.io/script.js"></script>
+    <script>
+        window.cronitor = window.cronitor || function() { (window.cronitor.q = window.cronitor.q || []).push(arguments); };
+        cronitor('config', { clientKey: '923fdb3232feb40586b536cff48fa182' });
+    </script>
 </body>
 </html>
